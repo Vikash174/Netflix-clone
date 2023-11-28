@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useRef, useState } from "react";
 import NetflixFeatures from "./NetflixFeatures";
 import FrequentlyAskedQuestion from "./frequently_asked_questions/FrequentlyAskedQuestion";
 import { BG_IMAGE_URL, LOGO_URL } from "../../utils/utils";
 import { useNavigate } from "react-router-dom";
+import { checkValidData } from "../../utils/validate";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../../utils/firebase";
 
 const SignUp = () => {
   return (
@@ -85,6 +88,42 @@ const EmailInputSection = () => {
 };
 
 export const EmailForm = () => {
+  const [signUpFormValidationErrorMsg, setSignUpFormValidationErrorMsg] =
+    useState(null);
+
+  const name = useRef(null);
+  const email = useRef(null);
+  const password = useRef(null);
+
+  const createUser = (email, password) => {
+    createUserWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        // Signed up
+        const user = userCredential.user;
+        console.log(user);
+      })
+      .catch((error) => {
+        const errorMessage = error.message;
+        setSignUpFormValidationErrorMsg(errorMessage);
+      });
+  };
+
+  const signUpClickHandler = () => {
+    // validate the data
+    const msg = checkValidData(
+      email.current.value,
+      password.current.value,
+      name.current.value
+    );
+    setSignUpFormValidationErrorMsg(msg);
+
+    if (signUpFormValidationErrorMsg !== null) return;
+
+    // Create a new user with email & password
+
+    createUser(email.current.value, password.current.value);
+  };
+
   return (
     <div className="flex flex-col items-center gap-5 p-4 sm:mt-10 md:mt-5 md:p-5 lg:p-10 text-center text-white">
       <div>
@@ -93,16 +132,40 @@ export const EmailForm = () => {
         </span>
       </div>
       <div>
-        <div>
+        <form
+          className="flex flex-col gap-5 border border-white p-5 bg-black "
+          onSubmit={(e) => {
+            e.preventDefault();
+          }}
+        >
           <input
+            ref={name}
+            className="p-3 bg-black w-80 md:w-96 lg:p-5 lg:w-[700px] border border-white"
+            type="text"
+            placeholder="Enter Your Name"
+          />
+          <input
+            ref={email}
             className="p-3 bg-black w-80 md:w-96 lg:p-5 lg:w-[700px] border border-white"
             type="email"
             placeholder="Email address"
           />
-        </div>
-        <div>
-          <button className=" m-5 p-2 bg-red-600 font-semibold md:text-lg lg:text-2xl lg:p-4">{`Get Started >`}</button>
-        </div>
+          <input
+            ref={password}
+            className="p-3 bg-black w-80 md:w-96 lg:p-5 lg:w-[700px] border border-white"
+            type="password"
+            placeholder="Password"
+          />
+          {signUpFormValidationErrorMsg && (
+            <p className="text-red-500 font-bold text-[0.7rem]">
+              !{signUpFormValidationErrorMsg}
+            </p>
+          )}
+          <button
+            className=" m-5 p-2 bg-red-600 font-semibold md:text-lg lg:text-2xl lg:p-4"
+            onClick={signUpClickHandler}
+          >{`Get Started >`}</button>
+        </form>
       </div>
     </div>
   );

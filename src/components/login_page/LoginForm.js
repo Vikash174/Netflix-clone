@@ -1,6 +1,7 @@
 import React, { useRef, useState } from "react";
 import { checkValidData } from "../../utils/validate";
-
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../../utils/firebase";
 const LoginForm = () => {
   return (
     <div className="p-5 pb-36 border-b border-gray-400 md:w-[650px]">
@@ -30,6 +31,24 @@ const FormBody = () => {
     const msg = checkValidData(email.current.value, password.current.value);
     // console.log(msg);
     setErrorMsg(msg);
+    if (errorMsg !== null) return;
+
+    signInWithEmailAndPassword(
+      auth,
+      email.current.value,
+      password.current.value
+    )
+      .then((userCredential) => {
+        // Signed in
+        const user = userCredential.user;
+        console.log("user signed in sucessfuly", user);
+        // ...
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        setErrorMsg(errorCode + " " + errorMessage);
+      });
   };
 
   return (
