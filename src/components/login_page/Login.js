@@ -1,26 +1,17 @@
 import React from "react";
-import { LOGO_URL } from "../../utils/utils";
 import LoginForm from "./LoginForm";
 import LogInFooter from "./LogInFooter";
+import Header from "../Header";
 
 const Login = () => {
   return (
-    <div className="bg-black flex flex-col h-[100vh] justify-between ">
-      <LoginHeaer />
+    <div className="bg-black flex flex-col h-[100vh] justify-between items-center">
+      <Header isSignUp={false} isBrowse={false} />
       <LoginBody />
       <LogInFooter />
     </div>
   );
 };
-
-const LoginHeaer = () => {
-  return (
-    <div>
-      <img className="w-28" src={LOGO_URL} alt="logo" />
-    </div>
-  );
-};
-
 const LoginBody = () => {
   return <LoginForm />;
 };

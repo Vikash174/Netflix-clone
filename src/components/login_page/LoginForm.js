@@ -2,9 +2,13 @@ import React, { useRef, useState } from "react";
 import { checkValidData } from "../../utils/validate";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../utils/firebase";
+import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux/es/exports";
+import { addUser } from "../../redux/slices/userSlice";
+import ProgressSpinner from "../ProgressSpinner";
 const LoginForm = () => {
   return (
-    <div className="p-5 pb-36 border-b border-gray-400 md:w-[650px]">
+    <div className="p-5 pb-36 border-b mt-10  border-gray-400 md:w-[650px] md:mt-20 lg:mt-40">
       <FormTitle />
       <FormBody />
       <FormFooter />
@@ -21,12 +25,17 @@ const FormTitle = () => {
 };
 
 const FormBody = () => {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
   const [errorMsg, setErrorMsg] = useState(null);
+  const [showSpinner, setShowSpinner] = useState(false);
 
   const email = useRef(null);
   const password = useRef(null);
 
   const signInHandler = () => {
+    setShowSpinner(true);
+
     //Validate the form data
     const msg = checkValidData(email.current.value, password.current.value);
     // console.log(msg);
@@ -41,10 +50,15 @@ const FormBody = () => {
       .then((userCredential) => {
         // Signed in
         const user = userCredential.user;
-        console.log("user signed in sucessfuly", user);
+        // console.log("user signed in sucessfuly", user);
+        dispatch(addUser({ uid: user.uid, email: user.email }));
+        setShowSpinner(false);
+        navigate("/browse");
+
         // ...
       })
       .catch((error) => {
+        setShowSpinner(false);
         const errorCode = error.code;
         const errorMessage = error.message;
         setErrorMsg(errorCode + " " + errorMessage);
@@ -70,6 +84,8 @@ const FormBody = () => {
       {errorMsg && (
         <p className="text-red-600 ml-3 font-bold text-sm">!{errorMsg}</p>
       )}
+
+      {<ProgressSpinner showSpinner={showSpinner} />}
       <button
         className="p-3 bg-red-600 m-2 mt-4 font-semibold text-white rounded-md"
         onClick={signInHandler}
@@ -81,6 +97,11 @@ const FormBody = () => {
 };
 
 const FormFooter = () => {
+  const navigate = useNavigate();
+
+  const SignUpNowClickHandler = () => {
+    navigate("/");
+  };
   return (
     <div className="text-gray-400 p-1 m-2">
       <div className="flex justify-between">
@@ -94,7 +115,12 @@ const FormFooter = () => {
       </div>
       <div className="mt-3">
         <span>New To Netflix? </span>
-        <span className="text-white">Sign up now</span>
+        <span
+          className="text-white hover:cursor-pointer"
+          onClick={SignUpNowClickHandler}
+        >
+          Sign up now
+        </span>
       </div>
       <div className="mt-4">
         <span className="text-sm ">
