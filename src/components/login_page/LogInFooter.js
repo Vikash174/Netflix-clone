@@ -1,10 +1,12 @@
 import React from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faLanguage } from "@fortawesome/free-solid-svg-icons";
 
 const LogInFooter = () => {
   return (
-    <div className="p-4 text-gray-400 bg-black">
+    <div className="p-4 text-gray-400 bg-black w-screen flex flex-col items-center">
       <h4 className="p-2">Questions? Call 00-0000-000-000</h4>
-      <div className="p-2 grid grid-cols-2 text-[0.8rem]">
+      <div className="p-2 grid grid-cols-2 text-[0.8rem] ">
         <span>FAQ</span>
         <span>Terms of Use</span>
         <span>Cookie Preferences</span>
@@ -12,7 +14,6 @@ const LogInFooter = () => {
         <span>Privacy</span>
         <span>Corporate Information</span>
       </div>
-      <button className="p-2 m-2 border border-gray-400">* English ^</button>
     </div>
   );
 };

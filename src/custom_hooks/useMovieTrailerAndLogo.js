@@ -3,7 +3,9 @@ import { API_OPTIONS } from "../utils/constant";
 import { useDispatch } from "react-redux";
 import {
   addMovieLogoFilePath,
+  addYoutubeTrailer,
   addYoutubeTrailerKey,
+  addYoutubeTrailerUrl,
 } from "../redux/slices/moviesSlice";
 
 const useMovieTrailerAndLogo = (id) => {
@@ -21,7 +23,10 @@ const useMovieTrailerAndLogo = (id) => {
         const trailersArray = jsonRes.results.filter(
           (result) => result.type === "Trailer"
         );
-        dispatch(addYoutubeTrailerKey(trailersArray[0].key));
+
+        const url = `https://www.youtube.com/embed/${trailersArray[0].key}?rel=0?version=3&autoplay=1&controls=0&&showinfo=0&loop=1&playlist=${trailersArray[0].key}&mute=1`;
+
+        dispatch(addYoutubeTrailer(url));
       } else {
         dispatch(addMovieLogoFilePath(jsonRes.logos[0].file_path));
       }
