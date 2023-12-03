@@ -15,4 +15,7 @@ export const API_OPTIONS = {
 
 export const NOW_PLAYING_MOVIES_URL = "https://api.themoviedb.org/3/movie/";
 
-export const IMGAGE_CDN_URL = "https://image.tmdb.org/t/p/w500";
+export const IMAGE_CDN_URL = "https://image.tmdb.org/t/p/w500";
+export const LOGOS_IMAGE_CDN_URL = "https://image.tmdb.org/t/p/w200";
+
+export const GET_MOVIE_INFO_URL = "https://api.themoviedb.org/3/movie/";

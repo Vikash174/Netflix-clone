@@ -3,9 +3,10 @@ import Login from "./login_page/Login";
 import Browse from "./browse_page/Browse";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import SignUp from "./signup_page/SignUp";
-import GPTSearch from "./gpt_search/GPTSearch";
+
 import MovieInfo from "./browse_page/info_div/MovieInfo";
 import { useSelector } from "react-redux";
+import MovieSearch from "./gpt_search/MovieSearch";
 
 const Body = () => {
   const reduxState = useSelector((state) => state);
@@ -27,7 +28,7 @@ const Body = () => {
     },
     {
       path: "/gpt-search",
-      element: <GPTSearch />,
+      element: <MovieSearch />,
     },
   ]);
 

@@ -13,9 +13,6 @@ const useAddMoviesListToReduxStore = (categoryStr) => {
 
   const getNowPlayingMovies = async () => {
     try {
-      console.log(
-        NOW_PLAYING_MOVIES_URL + categoryStr + "&language=en-US&page=1"
-      );
       const response = await fetch(
         NOW_PLAYING_MOVIES_URL + categoryStr,
         API_OPTIONS

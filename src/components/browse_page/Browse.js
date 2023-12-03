@@ -16,7 +16,6 @@ const Browse = () => {
   const user = reduxState.user;
   const movies = reduxState.movies.nowPlayingMovies;
   const showInfoDiv = reduxState.currentInfoMovie.showInfoDiv;
-  console.log(showInfoDiv);
 
   const navigate = useNavigate();
 
@@ -33,9 +32,9 @@ const Browse = () => {
   }, []);
 
   return (
-    <div className={showInfoDiv ? "pointer-events-none" : ""}>
+    <div className={showInfoDiv ? "pointer-events-none opacity-40 " : ""}>
       <Header isSignUp={false} isBrowse={true} />
-      {movies && <MoviePlaying movie={movies[2]} />}
+      {movies && <MoviePlaying movie={movies[0]} />}
       <MovieListContainer />
     </div>
   );
