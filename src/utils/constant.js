@@ -19,3 +19,11 @@ export const IMAGE_CDN_URL = "https://image.tmdb.org/t/p/w500";
 export const LOGOS_IMAGE_CDN_URL = "https://image.tmdb.org/t/p/w200";
 
 export const GET_MOVIE_INFO_URL = "https://api.themoviedb.org/3/movie/";
+
+export const SUPPORTED_LANGUAGES = [
+  { identifier: "en", name: "English" },
+  { identifier: "hindi", name: "हिंदी" },
+  { identifier: "marathi", name: "मराठी" },
+];
+
+export const OPENAI_API_KEY = "";

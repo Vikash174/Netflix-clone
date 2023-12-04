@@ -32,18 +32,14 @@ const useMovieTrailerAndLogo = (id) => {
         const url = `https://www.youtube.com/embed/${trailersArray[0].key}?rel=0?version=3&autoplay=1&controls=0&&showinfo=0&loop=1&playlist=${trailersArray[0].key}&mute=1`;
 
         if (showInfoDiv) {
-          console.log("Show Info Div trailer" + jsonRes);
           dispatch(addMovieTrailerUrl(url));
         } else {
-          console.log("Main Div Trailer " + jsonRes);
           dispatch(addYoutubeTrailer(url));
         }
       } else {
         if (showInfoDiv) {
-          console.log("Show Info Div logo" + jsonRes);
           dispatch(addMovieLogo(jsonRes.logos[0].file_path));
         } else {
-          console.log("Main div logo " + jsonRes);
           dispatch(addMovieLogoFilePath(jsonRes.logos[0].file_path));
         }
       }

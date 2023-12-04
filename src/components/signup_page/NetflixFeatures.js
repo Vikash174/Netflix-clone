@@ -1,27 +1,29 @@
 import React from "react";
+import { useSelector } from "react-redux";
+import SIGN_UP_LANGUAGE from "../../utils/languages/SignUP/SignUpLangConstant";
 
 const NetflixFeatures = () => {
+  const langKey = useSelector((state) => state.config.language);
   return (
     <div className="bg-black text-white">
-      <EnjoyOnYourTv />
-      <DownloadToWatchOffline />
-      <WatchEveryWhere />
-      <CreateProfileForKids />
+      <EnjoyOnYourTv langKey={langKey} />
+      <DownloadToWatchOffline langKey={langKey} />
+      <WatchEveryWhere langKey={langKey} />
+      <CreateProfileForKids langKey={langKey} />
     </div>
   );
 };
 
-const EnjoyOnYourTv = () => {
+const EnjoyOnYourTv = ({ langKey }) => {
   return (
     <div className="flex flex-col items-center p-3 text-center border-b-[8px] border-gray-800 md:flex-row md:justify-evenly md:text-start">
       <div className="p-5 lg:w-[500px]">
         <h2 className="font-bold text-2xl  mt-10 md:text-4xl md:mt-0">
-          Enjoy on your TV
+          {SIGN_UP_LANGUAGE[langKey].NetflixFeatureEnjoyOnYourTvHeadingText}
         </h2>
 
         <span className=" font-semibold md:text-xl">
-          Watch on samrt TVs, PlayStation, Xbox, Chromecast, Apple TV, Blu-ray
-          players and more.
+          {SIGN_UP_LANGUAGE[langKey].NetflixFeatureEnjoyOnYourTvSpanText}
         </span>
       </div>
       <div>
@@ -34,16 +36,16 @@ const EnjoyOnYourTv = () => {
   );
 };
 
-const DownloadToWatchOffline = () => {
+const DownloadToWatchOffline = ({ langKey }) => {
   return (
     <div className="flex flex-col items-center p-3 text-center  border-b-[8px] border-gray-800 md:flex-row-reverse md:justify-evenly md:text-start">
       <div className="p-5 lg:w-[500px]">
         <h2 className="font-bold text-2xl  mt-10 md:text-4xl md:mt-0">
-          Download your shows to watch offline
+          {SIGN_UP_LANGUAGE[langKey].NetflixFeatureDownloadOfflineHeadingText}
         </h2>
 
         <span className=" font-semibold md:text-xl">
-          Save your favorites easily and always have something to watch.
+          {SIGN_UP_LANGUAGE[langKey].NetflixFeatureDownloadOfflineTvSpanText}
         </span>
       </div>
       <div>
@@ -55,17 +57,16 @@ const DownloadToWatchOffline = () => {
     </div>
   );
 };
-const WatchEveryWhere = () => {
+const WatchEveryWhere = ({ langKey }) => {
   return (
     <div className="flex flex-col items-center p-3 text-center  border-b-[8px] border-gray-800 md:flex-row md:justify-evenly md:text-start">
       <div className="p-5 lg:w-[500px]">
         <h2 className="font-bold text-2xl  mt-10 md:text-4xl md:mt-0">
-          Watch everywhere
+          {SIGN_UP_LANGUAGE[langKey].NetflixFeatureWatchEveryWhereHeadingText}
         </h2>
 
         <span className="font-semibold md:text-xl">
-          Stream unlimited movies and TV shows on your phone, tablet, laptop,
-          and TV.
+          {SIGN_UP_LANGUAGE[langKey].NetflixFeatureWatchEveryWhereSpanText}
         </span>
       </div>
       <div>
@@ -77,17 +78,19 @@ const WatchEveryWhere = () => {
     </div>
   );
 };
-const CreateProfileForKids = () => {
+const CreateProfileForKids = ({ langKey }) => {
   return (
     <div className="flex flex-col items-center p-3 text-center  border-b-[8px] border-gray-800 md:flex-row-reverse md:justify-evenly md:text-start">
       <div className="pt-5 lg:w-[500px]">
         <h2 className="font-bold text-2xl  mt-10 md:text-4xl md:mt-0">
-          Create profiles for kids
+          {
+            SIGN_UP_LANGUAGE[langKey]
+              .NetflixFeatureCreateProfileForKidsHeadingText
+          }
         </h2>
 
         <span className="font-semibold md:text-xl">
-          Send children on adventures with their favourite characters in a space
-          made just for them-free with your membership.
+          {SIGN_UP_LANGUAGE[langKey].NetflixFeatureCreateProfileForKidsSpanText}
         </span>
       </div>
       <div>

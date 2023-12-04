@@ -7,6 +7,7 @@ const initialState = {
   upcomingMovies: null,
   youtubeTrailer: null,
   movieLogoFilePath: null,
+  gptSuggestMovies: null,
 };
 
 export const moviesSlice = createSlice({
@@ -31,6 +32,9 @@ export const moviesSlice = createSlice({
     addMovieLogoFilePath: (state, action) => {
       state.movieLogoFilePath = action.payload;
     },
+    addGptMovies: (state, action) => {
+      state.gptSuggestMovies = action.payload;
+    },
   },
 });
 
@@ -42,6 +46,7 @@ export const {
   addTopRatedMovies,
   addUpcomingMovies,
   addYoutubeTrailer,
+  addGptMovies,
 } = moviesSlice.actions;
 
 export default moviesSlice.reducer;

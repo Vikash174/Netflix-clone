@@ -12,10 +12,12 @@ import useMovieTrailerAndLogo from "../../../custom_hooks/useMovieTrailerAndLogo
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import MovieTitleAndDescription from "../main_div/MovieTitleAndDescription";
+import MOVIE_LANG from "../../../utils/languages/MovieInfo/MovieInfoLangConstant";
 
 const MovieInfo = () => {
   const dispatch = useDispatch();
   const movieId = useSelector((state) => state.currentInfoMovie.movieId);
+  const langKey = useSelector((state) => state.config.language);
 
   useMovieInfo(movieId);
   useMovieTrailerAndLogo(movieId);
@@ -26,7 +28,6 @@ const MovieInfo = () => {
   );
   const movieLogo = useSelector((state) => state.currentInfoMovie.movieLogo);
 
-  console.log("movie logo " + movieLogo + " video url " + videoUrl);
   const closeInfoDivHandler = () => {
     dispatch(setShowInfoDiv(false));
     dispatch(removeInfoMovie());
@@ -50,31 +51,39 @@ const MovieInfo = () => {
       </div>
 
       <div className="w-[100%] mx-auto bg-white p-8 rounded shadow-lg ">
-        <h1 className="text-3xl font-bold mb-4">Movie Information</h1>
+        <h1 className="text-3xl font-bold mb-4">
+          {MOVIE_LANG[langKey].movieInformation}
+        </h1>
 
         <div className="text-lg">
           <p>
-            <strong>Title:</strong> {movieData.title}
+            <strong>{MOVIE_LANG[langKey].title}:</strong> {movieData.title}
           </p>
           <p>
-            <strong>Overview:</strong> {movieData.overview}
+            <strong>{MOVIE_LANG[langKey].overview}:</strong>{" "}
+            {movieData.overview}
           </p>
           <p>
-            <strong>Genres:</strong>{" "}
+            <strong>{MOVIE_LANG[langKey].genres}:</strong>{" "}
             {movieData.genres.map((genre) => genre.name).join(", ")}
           </p>
           <p>
-            <strong>Release Date:</strong> {movieData.release_date}
+            <strong>{MOVIE_LANG[langKey].releaseDate}:</strong>{" "}
+            {movieData.release_date}
           </p>
           <p>
-            <strong>Runtime:</strong> {movieData.runtime} minutes
+            <strong>{MOVIE_LANG[langKey].runtime}:</strong> {movieData.runtime}{" "}
+            minutes
           </p>
           <p>
-            <strong>Vote Average:</strong> {movieData.vote_average}
+            <strong>{MOVIE_LANG[langKey].voteAvg}:</strong>{" "}
+            {movieData.vote_average}
           </p>
 
           <div className="mt-6">
-            <p className="font-bold">Production Companies:</p>
+            <p className="font-bold">
+              {MOVIE_LANG[langKey].productionCompanies}:
+            </p>
             {movieData.production_companies.map((company) => (
               <div key={company.id} className="flex items-center mb-2">
                 <img

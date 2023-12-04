@@ -9,11 +9,11 @@ const FrequentlyAskedQuestionAccordion = (props) => {
   };
 
   return (
-    <div
-      className="w-[340px] md:w-[700px] lg:w-[900px] md:text-xl "
-      onClick={accordionClickHandler}
-    >
-      <div className="bg-gray-600 p-3 m-2 hover:cursor-pointer">
+    <div className="w-[340px] md:w-[700px] lg:w-[900px] md:text-xl ">
+      <div
+        className="bg-gray-600 p-3 m-2 hover:cursor-pointer"
+        onClick={accordionClickHandler}
+      >
         <AccordionTitle title={title} icon={showDescription ? "-" : "+"} />
       </div>
       {showDescription && (

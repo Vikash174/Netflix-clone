@@ -6,7 +6,8 @@ import SignUp from "./signup_page/SignUp";
 
 import MovieInfo from "./browse_page/info_div/MovieInfo";
 import { useSelector } from "react-redux";
-import MovieSearch from "./gpt_search/MovieSearch";
+
+import GPTSearch from "./gpt_search/GPTSearch";
 
 const Body = () => {
   const reduxState = useSelector((state) => state);
@@ -28,7 +29,7 @@ const Body = () => {
     },
     {
       path: "/gpt-search",
-      element: <MovieSearch />,
+      element: <GPTSearch />,
     },
   ]);
 

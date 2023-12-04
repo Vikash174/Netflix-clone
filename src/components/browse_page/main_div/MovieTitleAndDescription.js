@@ -14,6 +14,7 @@ import {
   setMovieId,
   setShowInfoDiv,
 } from "../../../redux/slices/currentMovieInfo";
+import BROWSE_LANG from "../../../utils/languages/Browse/BrowseLangConstant";
 
 const MovieTitleAndDescription = (props) => {
   const { logoPath, trailerUrl, id } = props;
@@ -21,6 +22,7 @@ const MovieTitleAndDescription = (props) => {
   const showInfoDiv = useSelector(
     (state) => state.currentInfoMovie.showInfoDiv
   );
+  const langKey = useSelector((state) => state.config.language);
   const [isMute, setIsMute] = useState(true);
 
   const volumeBtnClickHanlder = () => {
@@ -53,14 +55,15 @@ const MovieTitleAndDescription = (props) => {
         </div>
         <div className="p-2">
           <button className="p-2 m-2 w-24 text-black bg-white font-semibold text-lg rounded-md">
-            <FontAwesomeIcon icon={faPlay} /> Play
+            <FontAwesomeIcon icon={faPlay} /> {BROWSE_LANG[langKey].play}
           </button>
           {!showInfoDiv && (
             <button
               className="p-2 m-2 w-44 text-white bg-[#6d6d6eb3] font-semibold text-lg rounded-md"
               onClick={moreInfoHandler}
             >
-              <FontAwesomeIcon icon={faCircleInfo} /> More Info
+              <FontAwesomeIcon icon={faCircleInfo} />{" "}
+              {BROWSE_LANG[langKey].moreInfo}
             </button>
           )}
         </div>

@@ -2,10 +2,11 @@ import React, { useRef, useState } from "react";
 import { checkValidData } from "../../../utils/validate";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../../utils/firebase";
-import { useDispatch } from "react-redux/es/exports";
+import { useDispatch, useSelector } from "react-redux/es/exports";
 import { addUser } from "../../../redux/slices/userSlice";
 import { useNavigate } from "react-router-dom";
 import ProgressSpinner from "../../ProgressSpinner";
+import SIGN_UP_LANGUAGE from "../../../utils/languages/SignUP/SignUpLangConstant";
 
 export const EmailForm = () => {
   const dispatch = useDispatch();
@@ -13,7 +14,7 @@ export const EmailForm = () => {
   const [signUpFormValidationErrorMsg, setSignUpFormValidationErrorMsg] =
     useState(null);
   const [showSpinner, setShowSpinner] = useState(false);
-
+  const langKey = useSelector((state) => state.config.language);
   const name = useRef(null);
   const email = useRef(null);
   const password = useRef(null);
@@ -59,7 +60,7 @@ export const EmailForm = () => {
     <div className="flex flex-col items-center gap-5 p-2 sm:mt-10 md:mt-5 md:p-5 lg:p-10 text-center text-white">
       <div>
         <span className="p-1 md:p-5 text-lg font-[300px] lg:text-2xl ">
-          Ready to watch? Enter your email to create or restart your membership.
+          {SIGN_UP_LANGUAGE[langKey].EmailFormSpan1};
         </span>
       </div>
       <div>
@@ -73,19 +74,19 @@ export const EmailForm = () => {
             ref={name}
             className="p-3 bg-black w-80 md:w-96 lg:p-5 lg:w-[700px] border border-white"
             type="text"
-            placeholder="Enter Your Name"
+            placeholder={SIGN_UP_LANGUAGE[langKey].EmailFormNamePlaceHolder}
           />
           <input
             ref={email}
             className="p-3 bg-black w-80 md:w-96 lg:p-5 lg:w-[700px] border border-white"
             type="email"
-            placeholder="Email address"
+            placeholder={SIGN_UP_LANGUAGE[langKey].EmailFormEmailPlaceHolder}
           />
           <input
             ref={password}
             className="p-3 bg-black w-80 md:w-96 lg:p-5 lg:w-[700px] border border-white"
             type="password"
-            placeholder="Password"
+            placeholder={SIGN_UP_LANGUAGE[langKey].EmailFormPasswordPlaceHolder}
           />
           {signUpFormValidationErrorMsg && (
             <p className="text-red-500 font-bold text-[0.7rem]">
@@ -96,7 +97,9 @@ export const EmailForm = () => {
           <button
             className=" m-5 p-2 bg-red-600 font-semibold md:text-lg lg:text-2xl lg:p-4"
             onClick={signUpClickHandler}
-          >{`Get Started >`}</button>
+          >
+            {SIGN_UP_LANGUAGE[langKey].EmailFormSubmitBtnPlaceHolder}
+          </button>
         </form>
       </div>
     </div>
