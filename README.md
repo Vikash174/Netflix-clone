@@ -27,7 +27,8 @@ Responsive Design: The application is designed to be responsive, ensuring optima
 Firebase Authentication: User authentication is handled securely through Firebase, allowing users to create accounts, log in, and enjoy a personalized experience.
 
 Multilingual Support: The application supports multiple languages, enhancing accessibility for users around the world.
-## Feedback
 
-If you have any feedback, please reach out to us at fake@fake.com
+You can Visit the site to see live demo : https://vikashdev.online/
+
+
 
