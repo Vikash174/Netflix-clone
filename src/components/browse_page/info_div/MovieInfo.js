@@ -1,12 +1,11 @@
 import React from "react";
-import MoviePlaying from "../main_div/MoviePlaying";
 import { useDispatch, useSelector } from "react-redux/es/exports";
 import {
   removeInfoMovie,
   setShowInfoDiv,
 } from "../../../redux/slices/currentMovieInfo";
 import useMovieInfo from "../../../custom_hooks/useMovieInfo";
-import { IMAGE_CDN_URL, LOGOS_IMAGE_CDN_URL } from "../../../utils/constant";
+import { LOGOS_IMAGE_CDN_URL } from "../../../utils/constant";
 import VideoBackground from "../main_div/VideoBackground";
 import useMovieTrailerAndLogo from "../../../custom_hooks/useMovieTrailerAndLogo";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";

@@ -3,7 +3,6 @@ import Header from "../Header";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import SearchBar from "./SearchBar";
-import GPTMoviesContainer from "./GPTMoviesContainer";
 import lang from "../../utils/languageConstant";
 const GPTSearch = () => {
   const navigate = useNavigate();
@@ -17,7 +16,7 @@ const GPTSearch = () => {
     if (user === null) {
       navigate("/logIn");
     }
-  }, []);
+  }, [navigate, user]);
 
   return (
     <div className="flex flex-col items-center bg-black h-[100vh] text-white">

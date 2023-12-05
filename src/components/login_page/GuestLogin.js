@@ -1,26 +1,16 @@
 import React, { useState } from "react";
-import firebase from "firebase/app";
 import "firebase/auth";
 import { signInAnonymously } from "firebase/auth";
 import { auth } from "../../utils/firebase";
-import { useNavigate } from "react-router-dom";
 
 const GuestLogin = () => {
   const [loading, setLoading] = useState(false);
-  const navigate = useNavigate();
 
   const handleGuestLogin = async () => {
     setLoading(true);
     signInAnonymously(auth)
-      .then(() => {
-        // Signed in..
-      })
-      .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-
-        // ...
-      });
+      .then(() => {})
+      .catch((error) => {});
   };
 
   return (

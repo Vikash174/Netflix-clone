@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef } from "react";
 import MovieCard from "./MovieCard";
 
 const MovieList = (props) => {

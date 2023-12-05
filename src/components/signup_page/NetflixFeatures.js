@@ -1,6 +1,12 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import SIGN_UP_LANGUAGE from "../../utils/languages/SignUP/SignUpLangConstant";
+import {
+  CREATE_PROFILE_KID_IMG_URL,
+  DOWNLOAD_OFFLINE_IMG_URL,
+  ENJOY_YOUR_TV_IMG_URL,
+  WATCH_EVERYWHERE_IMG_URL,
+} from "../../utils/constant";
 
 const NetflixFeatures = () => {
   const langKey = useSelector((state) => state.config.language);
@@ -27,10 +33,7 @@ const EnjoyOnYourTv = ({ langKey }) => {
         </span>
       </div>
       <div>
-        <img
-          src="https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/tv.png"
-          alt=""
-        />
+        <img src={ENJOY_YOUR_TV_IMG_URL} alt="IV and Remote" />
       </div>
     </div>
   );
@@ -50,8 +53,8 @@ const DownloadToWatchOffline = ({ langKey }) => {
       </div>
       <div>
         <img
-          src="https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/mobile-0819.jpg"
-          alt=""
+          src={DOWNLOAD_OFFLINE_IMG_URL}
+          alt={`girl wallpaper on mobile screen`}
         />
       </div>
     </div>
@@ -71,8 +74,8 @@ const WatchEveryWhere = ({ langKey }) => {
       </div>
       <div>
         <img
-          src="https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/device-pile-in.png"
-          alt=""
+          src={WATCH_EVERYWHERE_IMG_URL}
+          alt="mobile, tablet and apple monitor"
         />
       </div>
     </div>
@@ -94,10 +97,7 @@ const CreateProfileForKids = ({ langKey }) => {
         </span>
       </div>
       <div>
-        <img
-          src="https://occ-0-2085-2186.1.nflxso.net/dnm/api/v6/19OhWN2dO19C9txTON9tvTFtefw/AAAABVr8nYuAg0xDpXDv0VI9HUoH7r2aGp4TKRCsKNQrMwxzTtr-NlwOHeS8bCI2oeZddmu3nMYr3j9MjYhHyjBASb1FaOGYZNYvPBCL.png?r=54d"
-          alt=""
-        />
+        <img src={CREATE_PROFILE_KID_IMG_URL} alt="boy and girl with dog" />
       </div>
     </div>
   );

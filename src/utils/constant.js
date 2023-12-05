@@ -27,3 +27,12 @@ export const SUPPORTED_LANGUAGES = [
 ];
 
 export const OPENAI_API_KEY = "";
+
+export const ENJOY_YOUR_TV_IMG_URL =
+  "https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/tv.png";
+export const DOWNLOAD_OFFLINE_IMG_URL =
+  "https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/mobile-0819.jpg";
+export const WATCH_EVERYWHERE_IMG_URL =
+  "https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/device-pile-in.png";
+export const CREATE_PROFILE_KID_IMG_URL =
+  "https://occ-0-2085-2186.1.nflxso.net/dnm/api/v6/19OhWN2dO19C9txTON9tvTFtefw/AAAABVr8nYuAg0xDpXDv0VI9HUoH7r2aGp4TKRCsKNQrMwxzTtr-NlwOHeS8bCI2oeZddmu3nMYr3j9MjYhHyjBASb1FaOGYZNYvPBCL.png?r=54d";

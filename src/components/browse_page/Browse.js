@@ -1,21 +1,18 @@
 import React, { useEffect } from "react";
 import Header from "../Header";
 import { useSelector } from "react-redux";
-import { useDispatch } from "react-redux/es/exports";
 import { useNavigate } from "react-router-dom";
-
 import MoviePlaying from "./main_div/MoviePlaying";
 import MovieListContainer from "./movies_types_div/MovieListContainer";
 import useAddMoviesListToReduxStore from "../../custom_hooks/useAddMoviesListToReduxStore";
-import MovieInfo from "./info_div/MovieInfo";
-import { setShowInfoDiv } from "../../redux/slices/currentMovieInfo";
+import ShimmerBrowse from "./ShimmerBrowse";
 
 const Browse = () => {
-  const reduxState = useSelector((state) => state);
-
-  const user = reduxState.user;
-  const movies = reduxState.movies.nowPlayingMovies;
-  const showInfoDiv = reduxState.currentInfoMovie.showInfoDiv;
+  const user = useSelector((state) => state.user);
+  const movies = useSelector((state) => state.movies.nowPlayingMovies);
+  const showInfoDiv = useSelector(
+    (state) => state.currentInfoMovie.showInfoDiv
+  );
 
   const navigate = useNavigate();
 
@@ -29,9 +26,13 @@ const Browse = () => {
       navigate("/logIn");
       return;
     }
-  }, []);
+  }, [navigate, user]);
 
-  return (
+  return movies === null ? (
+    <div>
+      <Header /> <ShimmerBrowse />
+    </div>
+  ) : (
     <div className={showInfoDiv ? "pointer-events-none opacity-40 " : ""}>
       <Header isSignUp={false} isBrowse={true} />
       {movies && <MoviePlaying movie={movies[0]} />}

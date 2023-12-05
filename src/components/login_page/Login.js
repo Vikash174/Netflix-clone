@@ -9,7 +9,7 @@ const Login = () => {
     <div className="bg-black flex flex-col h-[100vh] justify-between items-center">
       <Header isSignUp={false} isBrowse={false} />
       <LoginBody />
-      <GuestLogin />
+      {/* <GuestLogin /> */}
       <LogInFooter />
     </div>
   );

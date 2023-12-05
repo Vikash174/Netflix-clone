@@ -10,9 +10,9 @@ import { useSelector } from "react-redux";
 import GPTSearch from "./gpt_search/GPTSearch";
 
 const Body = () => {
-  const reduxState = useSelector((state) => state);
-
-  const showInfoDiv = reduxState.currentInfoMovie.showInfoDiv;
+  const showInfoDiv = useSelector(
+    (state) => state.currentInfoMovie.showInfoDiv
+  );
 
   const router = createBrowserRouter([
     {

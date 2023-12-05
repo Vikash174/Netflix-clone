@@ -14,7 +14,6 @@ const MovieCard = (props) => {
   const movieCardClickHandler = () => {
     dispatch(setShowInfoDiv(true));
     dispatch(setMovieId(id));
-    // dispatch(addInfoMovie(props);
   };
 
   return (

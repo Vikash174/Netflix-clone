@@ -6,13 +6,11 @@ import { auth } from "../utils/firebase";
 import { useDispatch, useSelector } from "react-redux";
 import { removeUser } from "../redux/slices/userSlice";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faLanguage, faBrain } from "@fortawesome/free-solid-svg-icons";
+import { faLanguage } from "@fortawesome/free-solid-svg-icons";
 import { changeLanguage } from "../redux/slices/configSlice";
 import HEADER_LANG from "../utils/languages/header/HeaderLangConstants";
 
-export const Header = (props) => {
-  const { isSignUp, isBrowse } = props;
-
+export const Header = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const location = useLocation();

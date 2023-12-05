@@ -1,7 +1,4 @@
 import React from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faLanguage } from "@fortawesome/free-solid-svg-icons";
-
 const LogInFooter = () => {
   return (
     <div className="p-4 text-gray-400 bg-black w-screen flex flex-col items-center">
