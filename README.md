@@ -28,6 +28,15 @@ Firebase Authentication: User authentication is handled securely through Firebas
 
 Multilingual Support: The application supports multiple languages, enhancing accessibility for users around the world.
 
+
+
+![Screenshot 2023-12-05 153400](https://github.com/Vikash174/Netflix-clone/assets/71267021/a1c1c27d-d680-4b03-8362-20ce8869a442)
+![Screenshot 2023-12-05 153425](https://github.com/Vikash174/Netflix-clone/assets/71267021/2f196b6f-90b6-4dd3-b7e7-a353486e0558)
+![Screenshot 2023-12-05 153444](https://github.com/Vikash174/Netflix-clone/assets/71267021/7c6e450e-8877-49da-a8e7-ba358723f9ff)
+![Screenshot 2023-12-05 153527](https://github.com/Vikash174/Netflix-clone/assets/71267021/b50f40cd-ceab-4aed-baf4-2d2e79f3c9df)
+![Screenshot 2023-12-05 153551](https://github.com/Vikash174/Netflix-clone/assets/71267021/f4d8bafc-af96-4185-a156-6c36c2e5cbd3)
+
+
 You can Visit the site to see live demo : https://vikashdev.online/
 
 
