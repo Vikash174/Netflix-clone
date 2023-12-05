@@ -27,7 +27,7 @@ const SearchBar = () => {
 */
   const searchGPTHandler = async () => {
     dispatch(setShowDeveloperJobStatus(true));
-    /*console.log("search clicked" + searchTerm.current.value);
+    /*
 
     const gptQuery =
       "Act as a Movie Recommendation System and suggest some movies for the query : " +
@@ -39,7 +39,7 @@ const SearchBar = () => {
         messages: [{ role: "user", content: gptQuery }],
         model: "gpt-3.5-turbo",
       });
-      console.log(gptResult);
+    
     } catch (error) {
       console.error(
         "something went wrong while getting result form open ai server"
@@ -55,22 +55,22 @@ const SearchBar = () => {
       );
 
       const movieResults = await Promise.all(promiseArray);
-      // console.log(movieResults);
+  
       dispatch(addGptMovies(movieResults));
     }*/
   };
 
   return (
-    <div className="mt-36">
+    <div className="mt-20 md:mt-28 lg:mt-40">
       <form onSubmit={(e) => e.preventDefault()}>
         <input
           ref={searchTerm}
-          className="border border-white p-2 w-[500px] text-black"
+          className="border border-white p-1 w-52 text-black md:w-80 md:p-2 lg:w-96"
           type="text"
           placeholder={lang[langKey].gptSearchPlaceHolder}
         />
         <button
-          className="border border-white p-2 ml-2"
+          className="border border-white p-1 ml-2 md:p-2"
           onClick={searchGPTHandler}
         >
           {lang[langKey].searchBtnText}

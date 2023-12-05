@@ -20,11 +20,11 @@ const MovieCard = (props) => {
   return (
     <div>
       <div
-        className="p-4 w-40 hover:cursor-pointer"
+        className="p-1 w-24 hover:cursor-pointer lg:w-32 transition ease-in-out hover:scale-90 xl:w-40 xl:p-2"
         onClick={movieCardClickHandler}
       >
         <img
-          className="w-48 aspect-auto rounded-lg"
+          className="w-28 aspect-auto rounded-lg lg:w-32 xl:w-40"
           src={IMAGE_CDN_URL + poster_path}
           alt="movie poster"
         />

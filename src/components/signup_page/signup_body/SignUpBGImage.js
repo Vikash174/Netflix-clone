@@ -5,7 +5,7 @@ const SignUpBGImage = () => {
   return (
     <div className="bg-gradient-to-b from-black ">
       <img
-        className="scale-x-150 h-[90vh] shadow-inner  shadow-black opacity-50 w-[80%]"
+        className="scale-x-150 h-[90vh] shadow-inner  shadow-black opacity-50 w-[80%] "
         src={BG_IMAGE_URL}
         alt="background_image"
       />

@@ -7,7 +7,6 @@ const FrequentlyAskedQuestion = () => {
   const langKey = useSelector((state) => state.config.language);
   const frequently_asked_questions =
     SIGN_UP_LANGUAGE[langKey].FrequentlyAskedQuestions;
-  console.log(SIGN_UP_LANGUAGE[langKey].FrequentlyAskedQuestions);
 
   return (
     <div className="bg-black text-white flex flex-col items-center p-4">

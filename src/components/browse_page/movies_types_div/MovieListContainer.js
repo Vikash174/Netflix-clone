@@ -8,7 +8,7 @@ const MovieListContainer = () => {
   const langKey = useSelector((state) => state.config.language);
 
   return (
-    <div className="bg-black -mt-36">
+    <div className="bg-black -mt-16 lg:-mt-24 xl:-mt-12">
       <MovieList
         title={BROWSE_LANG[langKey].nowPlaying}
         movies={movies?.nowPlayingMovies}

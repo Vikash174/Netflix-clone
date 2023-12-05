@@ -23,7 +23,6 @@ export const Header = (props) => {
       ? navigate("/browse")
       : navigate("/gpt-search");
   };
-  console.log(HEADER_LANG[langKey].signIn);
 
   const signInClickHandler = () => {
     navigate("/logIn");
@@ -55,19 +54,23 @@ export const Header = (props) => {
         />
       </div>
       {
-        <div className="flex items-center mr-10">
+        <div className="flex items-center">
           {(location.pathname === "/logIn" || location.pathname === "/") && (
             <div className="text-black">
               {
                 <FontAwesomeIcon
                   icon={faLanguage}
-                  size="xl"
+                  size="sm"
                   style={{ color: "#f2f2f2" }}
                 />
-              }{" "}
-              <select onChange={LanguageChangeHandler}>
+              }
+              <select className="text-sm" onChange={LanguageChangeHandler}>
                 {SUPPORTED_LANGUAGES.map((lang) => (
-                  <option key={lang.identifier} value={lang.identifier}>
+                  <option
+                    className="text-sm"
+                    key={lang.identifier}
+                    value={lang.identifier}
+                  >
                     {lang.name}
                   </option>
                 ))}
@@ -89,7 +92,7 @@ export const Header = (props) => {
       }
       {(location.pathname === "/gpt-search" ||
         location.pathname === "/browse") && (
-        <div className="text-white flex bg-black p-1 mr-5 items-center">
+        <div className="text-white flex bg-black p-1 items-center sm:mr-2 lg:mr-4">
           <div className="text-black">
             {
               <FontAwesomeIcon
@@ -106,7 +109,7 @@ export const Header = (props) => {
               ))}
             </select>
           </div>
-          <div className="border border-white p-2 m-2 rounded-lg">
+          <div className="border border-white p-1 m-1 rounded-lg text-[0.5rem] bg-red-600 sm:text-[0.7rem] lg:text-lg">
             <button className="ml-2" onClick={aiBtnClickHandler}>
               {location.pathname === "/browse"
                 ? HEADER_LANG[langKey].aiRecommendation
@@ -114,7 +117,7 @@ export const Header = (props) => {
             </button>
           </div>
           <button
-            className="border border-white p-2 m-2 rounded-lg"
+            className="border border-white p-1 rounded-lg text-[0.5rem] bg-red-600 sm:text-[0.7rem] lg:text-lg"
             onClick={signOutHandler}
           >
             {HEADER_LANG[langKey].signOut}

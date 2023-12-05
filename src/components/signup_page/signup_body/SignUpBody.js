@@ -7,7 +7,7 @@ import EmailForm from "./EmailForm";
 
 const SignUpBody = () => {
   return (
-    <div>
+    <div className="flex flex-col items-center">
       <SignUpBGImage />
       <EmailInputSection />
       <NetflixFeatures />

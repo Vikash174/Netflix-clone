@@ -43,7 +43,7 @@ const FormBody = ({ langKey }) => {
 
     //Validate the form data
     const msg = checkValidData(email.current.value, password.current.value);
-    // console.log(msg);
+
     setErrorMsg(msg);
     if (errorMsg !== null) return;
 
@@ -55,7 +55,7 @@ const FormBody = ({ langKey }) => {
       .then((userCredential) => {
         // Signed in
         const user = userCredential.user;
-        // console.log("user signed in sucessfuly", user);
+
         dispatch(addUser({ uid: user.uid, email: user.email }));
         setShowSpinner(false);
         navigate("/browse");

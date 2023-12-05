@@ -34,7 +34,7 @@ const Body = () => {
   ]);
 
   return (
-    <div>
+    <div className="">
       <RouterProvider router={router} />
       {showInfoDiv && <MovieInfo />}
     </div>

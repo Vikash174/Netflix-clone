@@ -26,7 +26,6 @@ const MovieTitleAndDescription = (props) => {
   const [isMute, setIsMute] = useState(true);
 
   const volumeBtnClickHanlder = () => {
-    // console.log("mute button");
     const currUrl = trailerUrl;
 
     const isMuted = currUrl.charAt(currUrl.length - 1) === "1";
@@ -44,22 +43,22 @@ const MovieTitleAndDescription = (props) => {
     dispatch(setMovieId(id));
   };
   return (
-    <div className="absolute top-[40%] left-[5%] p-5  flex justify-between w-[95%] items-center ">
+    <div className="absolute top-[25%] left-[2%] p-1  flex justify-between w-[97%] items-end  sm:top-[30%] md:top-[35%] lg:top-[45%]">
       <div>
         <div>
           <img
-            className="w-60"
+            className="w-24 md:w-32 lg:w-40 xl:w-60"
             src={`https://image.tmdb.org/t/p/w500${logoPath}`}
             alt="movie logo"
           />
         </div>
-        <div className="p-2">
-          <button className="p-2 m-2 w-24 text-black bg-white font-semibold text-lg rounded-md">
+        <div className="">
+          <button className="p-1 m-1 w-12 text-black bg-white font-semibold text-[0.8rem] rounded-md lg:text-lg lg:w-20 mt-2">
             <FontAwesomeIcon icon={faPlay} /> {BROWSE_LANG[langKey].play}
           </button>
           {!showInfoDiv && (
             <button
-              className="p-2 m-2 w-44 text-white bg-[#6d6d6eb3] font-semibold text-lg rounded-md"
+              className="p-1 m-1 w-24 text-white bg-[#6d6d6eb3] font-semibold text-[0.8rem] rounded-md lg:text-lg lg:w-32"
               onClick={moreInfoHandler}
             >
               <FontAwesomeIcon icon={faCircleInfo} />{" "}
@@ -68,9 +67,9 @@ const MovieTitleAndDescription = (props) => {
           )}
         </div>
       </div>
-      <div className="text-white w-40 flex justify-between items-center">
+      <div className="text-white w-28 flex justify-between items-center">
         <button
-          className="border border-white rounded-full p-1"
+          className="border border-white rounded-full p-1 text-sm"
           onClick={volumeBtnClickHanlder}
         >
           {isMute ? (
@@ -79,7 +78,7 @@ const MovieTitleAndDescription = (props) => {
             <FontAwesomeIcon icon={faVolumeXmark} />
           )}
         </button>
-        <span className="border-l-4 border-white border-spacing-x-1	 w-28 bg-[#6d6d6eb3] p-1">
+        <span className="border-l-4 border-white border-spacing-x-1	 w-28 bg-[#6d6d6eb3] p-1 text-sm">
           {"U/A 13+"}
         </span>
       </div>

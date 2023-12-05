@@ -34,8 +34,8 @@ const MovieInfo = () => {
   };
 
   return movieData === null ? null : (
-    <div className="h-[85%] w-[85%] bg-black fixed inset-24 m-auto overflow-y-scroll z-50 flex flex-col scrollbar-none">
-      <div className="fixed left-[90%]">
+    <div className=" fixed h-[90vh] w-[90vw] left-0 top-0 bottom-0 right-0 my-auto mx-auto bg-black inset-24 overflow-y-scroll z-50 flex flex-col scrollbar-none p-2">
+      <div className="fixed left-[85%] sm:left-[90%]">
         <button className="text-4xl text-white " onClick={closeInfoDivHandler}>
           <FontAwesomeIcon icon={faXmark} />
         </button>
@@ -50,7 +50,7 @@ const MovieInfo = () => {
         <VideoBackground videoUrl={videoUrl} />
       </div>
 
-      <div className="w-[100%] mx-auto bg-white p-8 rounded shadow-lg ">
+      <div className="w-[100%] mx-auto bg-white p-2 rounded shadow-lg ">
         <h1 className="text-3xl font-bold mb-4">
           {MOVIE_LANG[langKey].movieInformation}
         </h1>
@@ -87,7 +87,7 @@ const MovieInfo = () => {
             {movieData.production_companies.map((company) => (
               <div key={company.id} className="flex items-center mb-2">
                 <img
-                  className="w-12 h-12 object-cover rounded mr-4"
+                  className="w-28 h-12 object-center rounded mr-4"
                   src={`${LOGOS_IMAGE_CDN_URL}/${company.logo_path}`}
                   alt=" Logo"
                 />

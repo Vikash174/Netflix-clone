@@ -49,42 +49,47 @@ export const EmailForm = () => {
       name.current.value
     );
 
-    setSignUpFormValidationErrorMsg(msg);
-    if (signUpFormValidationErrorMsg !== null) return;
+    // setSignUpFormValidationErrorMsg(msg);
+
+    if (msg !== null) {
+      setShowSpinner(false);
+      setSignUpFormValidationErrorMsg(msg);
+      return;
+    }
 
     // Create a new user with email & password
     createUser(email.current.value, password.current.value);
   };
 
   return (
-    <div className="flex flex-col items-center gap-5 p-2 sm:mt-10 md:mt-5 md:p-5 lg:p-10 text-center text-white">
+    <div className="flex flex-col items-center gap-5 p-2 sm:mt-10 md:mt-5 md:p-5 lg:p-10 text-center text-white ">
       <div>
         <span className="p-1 md:p-5 text-lg font-[300px] lg:text-2xl ">
-          {SIGN_UP_LANGUAGE[langKey].EmailFormSpan1};
+          {SIGN_UP_LANGUAGE[langKey].EmailFormSpan1}
         </span>
       </div>
       <div>
         <form
-          className="flex flex-col gap-5 border border-white p-2 bg-black "
+          className="flex flex-col gap-5 border border-white p-2 bg-black rounded-md"
           onSubmit={(e) => {
             e.preventDefault();
           }}
         >
           <input
             ref={name}
-            className="p-3 bg-black w-80 md:w-96 lg:p-5 lg:w-[700px] border border-white"
+            className="p-3 bg-black w-80 md:w-96 lg:p-5 lg:w-[700px] border border-white rounded-md"
             type="text"
             placeholder={SIGN_UP_LANGUAGE[langKey].EmailFormNamePlaceHolder}
           />
           <input
             ref={email}
-            className="p-3 bg-black w-80 md:w-96 lg:p-5 lg:w-[700px] border border-white"
+            className="p-3 bg-black w-80 md:w-96 lg:p-5 lg:w-[700px] border border-white rounded-md"
             type="email"
             placeholder={SIGN_UP_LANGUAGE[langKey].EmailFormEmailPlaceHolder}
           />
           <input
             ref={password}
-            className="p-3 bg-black w-80 md:w-96 lg:p-5 lg:w-[700px] border border-white"
+            className="p-3 bg-black w-80 md:w-96 lg:p-5 lg:w-[700px] border border-white rounded-md"
             type="password"
             placeholder={SIGN_UP_LANGUAGE[langKey].EmailFormPasswordPlaceHolder}
           />
@@ -95,7 +100,7 @@ export const EmailForm = () => {
           )}
           {<ProgressSpinner showSpinner={showSpinner} />}
           <button
-            className=" m-5 p-2 bg-red-600 font-semibold md:text-lg lg:text-2xl lg:p-4"
+            className=" m-5 p-2 bg-red-600 font-semibold md:text-lg lg:text-2xl lg:p-4 rounded-md"
             onClick={signUpClickHandler}
           >
             {SIGN_UP_LANGUAGE[langKey].EmailFormSubmitBtnPlaceHolder}
