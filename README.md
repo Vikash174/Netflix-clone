@@ -37,7 +37,7 @@ Multilingual Support: The application supports multiple languages, enhancing acc
 ![Screenshot 2023-12-05 153551](https://github.com/Vikash174/Netflix-clone/assets/71267021/f4d8bafc-af96-4185-a156-6c36c2e5cbd3)
 
 
-You can Visit the site to see live demo : https://vikashdev.online/
+You can Visit the site to see the live demo :[ https://vikashdev.online/](https://netflix-clone-two-rose.vercel.app/)https://netflix-clone-two-rose.vercel.app/
 
 
 
