@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import FrequentlyAskedQuestionAccordion from "./FrequentlyAskedQuestionAccordion";
 import SIGN_UP_LANGUAGE from "../../../utils/languages/SignUP/SignUpLangConstant";
 import { useSelector } from "react-redux/es/exports";
