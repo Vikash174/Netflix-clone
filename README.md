@@ -1,6 +1,8 @@
 
 # Netflix Clone
 
+### See live demo video here: https://www.linkedin.com/posts/vikash-rai-b1a2111a4_netflixclone-reactjs-tmdbapi-activity-7137906624039432192-w3US?utm_source=share&utm_medium=member_desktop
+
 This project is a Netflix clone that leverages the TMDB (The Movie Database) API for movie data and incorporates an AI-driven movie suggestion system powered by OpenAI APIs. The application is built using React and Redux for state management, React Router DOM for client-side navigation, and various React hooks for efficient development. The user interface is responsive and aesthetically pleasing, providing a seamless experience for users. Firebase is utilized for user authentication, ensuring a secure and personalized environment.
 
 
